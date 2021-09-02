@@ -21,6 +21,7 @@ jobs:
         with:
           text: ${{ github.repository }}
           regex: '^(.*)$'
+          flags: gm
       - if: ${{ steps.regex-match.outputs.match == '' }}
         run: echo ${{ github.repository }}--${{ steps.regex-match.outputs.match }}--${{ steps.regex-match.outputs.group1 }}
       - if: ${{ steps.regex-match.outputs.match == '' }}
