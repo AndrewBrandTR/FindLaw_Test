@@ -20,7 +20,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.repository }}
-          regex: '.*\/FindLaw_.+'
+          regex: '.*\/.+'
       - if: ${{ steps.regex-match.outputs.match == '' }}
         name: Create Issue for Repo Name
         uses: peter-evans/create-issue-from-file@v3
