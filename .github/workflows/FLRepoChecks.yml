@@ -20,7 +20,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.repository }}
-          regex: '.*\/FindLaw_([A-Z]+[A-Za-z0-9]*|a[0-9]{6}Config[0-9A-za-z]+)'
+          regex: '.*\/FindLaw_Test'
       - if: ${{ steps.regex-match.outputs.match == '' }}
         run: echo ${{ github.repository }}  ${{ steps.regex-match.outputs.match }}
       - if: ${{ steps.regex-match.outputs.match == '' }}
