@@ -22,7 +22,7 @@ jobs:
           text: ${{ github.repository }}
           regex: '.*\/FindLaw_Test'
       - if: ${{ steps.regex-match.outputs.match == '' }}
-        run: echo ${{ github.repository }}  ${{ steps.regex-match.outputs.match }}
+        run: echo ${{ github.repository }}--${{ steps.regex-match.outputs.match }}--${{ steps.regex-match.outputs.group1 }}
       - if: ${{ steps.regex-match.outputs.match == '' }}
         name: Create Issue for Repo Name
         uses: peter-evans/create-issue-from-file@v3
