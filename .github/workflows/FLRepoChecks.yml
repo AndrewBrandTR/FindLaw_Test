@@ -19,8 +19,8 @@ jobs:
       - name: "Check FindLaw Repository Name"
         uses: actions-ecosystem/action-regex-match@v2
         with:
-          text: ${{ github.repository }}
-          regex: '^(.*)$'
+          text: ${{ github.event.repository.name }}
+          regex: '^.*$'
           flags: gm
       - if: ${{ steps.regex-match.outputs.match == '' }}
         run: echo ${{ github.repository }}--${{ github.event.repository.name }}--${{ steps.regex-match.outputs.group1 }}
