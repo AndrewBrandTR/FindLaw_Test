@@ -20,7 +20,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.event.repository.name }}
-          regex: '^FindLaw_Test$'
+          regex: ^FindLaw_Test$
           flags: gm
           
       - if: ${{ steps.regex-match.outputs.match == '' }}
