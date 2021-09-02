@@ -23,7 +23,7 @@ jobs:
           regex: '^(.*)$'
           flags: gm
       - if: ${{ steps.regex-match.outputs.match == '' }}
-        run: echo ${{ github.repository.name }}--${{ steps.regex-match.outputs.match }}--${{ steps.regex-match.outputs.group1 }}
+        run: echo ${{ github.repository }}--${{ github.event.repository.name }}--${{ steps.regex-match.outputs.group1 }}
       - if: ${{ steps.regex-match.outputs.match == '' }}
         name: Create Issue for Repo Name
         uses: peter-evans/create-issue-from-file@v3
