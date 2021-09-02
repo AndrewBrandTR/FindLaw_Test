@@ -1,0 +1,49 @@
+name: FindLaw Repository Checks
+
+# Runs on repo creation or manually from the Actions tab
+on:
+  create:
+  fork:
+  workflow_dispatch:
+  schedule:
+    - cron: "1 1 1 * *"   # Runs once per month
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: FindLaw Repository Check Job
+    steps:
+      - uses: actions/checkout@v2
+
+      # TODO double check the regex
+      - name: "Check FindLaw Repository Name"
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ github.repository }}
+          regex: '.*\/FindLaw_([A-Z]+[A-Za-z0-9]*|a[0-9]{6}Config[0-9A-za-z]+)'
+      - if: ${{ steps.regex-match.outputs.match == '' }}
+        name: Create Issue for Repo Name
+        uses: peter-evans/create-issue-from-file@v3
+        with:
+          title: Please update this repository's name
+          assignees: ${{ github.repository_owner }}
+          content-filepath: .github/workflows/FLRepoChecks_issue_template.md
+          labels: |
+            Findlaw
+            automated issue
+
+      # Check for a readme file
+      - name: "Check README.md file exists in the root"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "README.md"
+      - if: steps.check_files.outputs.files_exists == 'false'
+        name: Create Issue for Readme
+        uses: peter-evans/create-issue-from-file@v3
+        with:
+          title: Please add a README.md to this repo (in the root dir)
+          assignees: ${{ github.repository_owner }}
+          content-filepath: .github/workflows/FLRepoChecks_issue_template.md
+          labels: |
+            Findlaw
+            automated issue
