@@ -21,7 +21,7 @@ jobs:
           regex: ^(.*)$
           flags: gm
       - if: true
-        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
+        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name2"
         uses: actions-ecosystem/action-regex-match@v2
@@ -30,7 +30,7 @@ jobs:
           regex: '^(.*)$'
           flags: gm
       - if: true
-        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
+        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name3"
         uses: actions-ecosystem/action-regex-match@v2
@@ -39,7 +39,7 @@ jobs:
           regex: '(.+)'
           flags: gm
       - if: true
-        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
+        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name4"
         uses: actions-ecosystem/action-regex-match@v2
@@ -48,4 +48,4 @@ jobs:
           regex: '(FindLaw_.*)'
           flags: gm
       - if: true
-        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
+        run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
