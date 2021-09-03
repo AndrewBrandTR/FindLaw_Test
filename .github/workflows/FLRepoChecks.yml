@@ -45,7 +45,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.event.repository.name }}
-          regex: '(FindLaw_.*)'
+          regex: 'FindLaw_.*'
           flags: g
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
