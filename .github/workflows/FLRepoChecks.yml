@@ -36,7 +36,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.event.repository.name }}
-          regex: '*'
+          regex: '.+'
           flags: gm
       - if: ${{ steps.regex-match.outputs.match != '' }}
         run: echo ${{ steps.regex-match.inputs.regex }}
@@ -45,7 +45,7 @@ jobs:
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.event.repository.name }}
-          regex: ''
+          regex: 'FindLaw_.*'
           flags: gm
       - if: ${{ steps.regex-match.outputs.match != '' }}
         run: echo ${{ steps.regex-match.inputs.regex }}
