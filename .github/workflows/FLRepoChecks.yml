@@ -23,9 +23,7 @@ jobs:
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs.text }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
 
-  test2:  
-    runs-on: ubuntu-latest
-    steps:
+
       - name: "Check FindLaw Repository Name2"
         uses: actions-ecosystem/action-regex-match@v2
         with:
@@ -35,9 +33,7 @@ jobs:
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
     
-  test3:  
-    runs-on: ubuntu-latest
-    steps:
+
       - name: "Check FindLaw Repository Name3"
         uses: actions-ecosystem/action-regex-match@v2
         with:
@@ -47,9 +43,7 @@ jobs:
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
 
-  test4:  
-    runs-on: ubuntu-latest
-    steps:
+
       - name: "Check FindLaw Repository Name4"
         uses: actions-ecosystem/action-regex-match@v2
         with:
