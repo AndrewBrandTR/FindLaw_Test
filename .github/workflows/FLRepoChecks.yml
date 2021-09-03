@@ -15,7 +15,7 @@ jobs:
 
       # TODO double check the regex
       - uses: actions-ecosystem/action-regex-match@v2
-        id: "Check FindLaw Repository Name1"
+        id: regex1
         with:
           text: ${{ github.event.repository.name }}
           regex: ^(.*)$
