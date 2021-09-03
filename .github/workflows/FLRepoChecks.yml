@@ -14,39 +14,38 @@ jobs:
       - uses: actions/checkout@v2
 
       # TODO double check the regex
-      - name: "Check FindLaw Repository Name"
+      - name: "Check FindLaw Repository Name1"
         uses: actions-ecosystem/action-regex-match@v2
         with:
           text: ${{ github.event.repository.name }}
-          regex: ^FindLaw_Test$
+          regex: ^.*$
           flags: gm
-          
-      - if: ${{ steps.regex-match.outputs.match == '' }}
-        run: echo ${{ github.repository }}--${{ github.event.repository.name }}--${{ steps.regex-match.outputs.group1 }}
+      - if: ${{ steps.regex-match.outputs.match != '' }}
+        run: echo ${{ steps.regex-match.inputs.regex }}
         
-      - if: ${{ steps.regex-match.outputs.match == '' }}
-        name: Create Issue for Repo Name
-        uses: peter-evans/create-issue-from-file@v3
+      - name: "Check FindLaw Repository Name2"
+        uses: actions-ecosystem/action-regex-match@v2
         with:
-          title: Please update this repository's name
-          assignees: ${{ github.repository_owner }}
-          content-filepath: .github/workflows/FLRepoChecks_issue_template.md
-          labels: |
-            Findlaw
-            automated issue
-
-      # Check for a readme file
-      - name: "Check README.md file exists in the root"
-        uses: andstor/file-existence-action@v1
+          text: ${{ github.event.repository.name }}
+          regex: '^.*$'
+          flags: gm
+      - if: ${{ steps.regex-match.outputs.match != '' }}
+        run: echo ${{ steps.regex-match.inputs.regex }}
+        
+      - name: "Check FindLaw Repository Name3"
+        uses: actions-ecosystem/action-regex-match@v2
         with:
-          files: "README.md"
-      - if: steps.check_files.outputs.files_exists == 'false'
-        name: Create Issue for Readme
-        uses: peter-evans/create-issue-from-file@v3
+          text: ${{ github.event.repository.name }}
+          regex: '*'
+          flags: gm
+      - if: ${{ steps.regex-match.outputs.match != '' }}
+        run: echo ${{ steps.regex-match.inputs.regex }}
+        
+      - name: "Check FindLaw Repository Name4"
+        uses: actions-ecosystem/action-regex-match@v2
         with:
-          title: Please add a README.md to this repo (in the root dir)
-          assignees: ${{ github.repository_owner }}
-          content-filepath: .github/workflows/FLRepoChecks_issue_template.md
-          labels: |
-            Findlaw
-            automated issue
+          text: ${{ github.event.repository.name }}
+          regex: ''
+          flags: gm
+      - if: ${{ steps.regex-match.outputs.match != '' }}
+        run: echo ${{ steps.regex-match.inputs.regex }}
