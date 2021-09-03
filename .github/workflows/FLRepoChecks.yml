@@ -19,7 +19,7 @@ jobs:
         with:
           text: ${{ github.event.repository.name }}
           regex: ^(.*)$
-          flags: gm
+          flags: g
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
@@ -28,7 +28,7 @@ jobs:
         with:
           text: ${{ github.event.repository.name }}
           regex: '^(.*)$'
-          flags: gm
+          flags: g
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
@@ -37,7 +37,7 @@ jobs:
         with:
           text: ${{ github.event.repository.name }}
           regex: '(.+)'
-          flags: gm
+          flags: g
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
         
@@ -46,6 +46,6 @@ jobs:
         with:
           text: ${{ github.event.repository.name }}
           regex: '(FindLaw_.*)'
-          flags: gm
+          flags: g
       - if: true
         run: echo ${{ github.event.repository.name }}=${{ steps.regex-match.inputs }}--${{ steps.regex-match.outputs.group1 }}-${{ steps.regex-match.outputs.group2 }}-${{ steps.regex-match.outputs.match }}
