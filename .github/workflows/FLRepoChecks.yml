@@ -20,8 +20,8 @@ jobs:
           text: ${{ github.event.repository.name }}
           regex: ^(.*)$
           flags: gm
-      - if: ${{ steps.regex-match.outputs.match != '' }}
-        run: echo ${{ steps.regex-match.inputs.regex }}
+        if: true
+        run: echo ${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name2"
         uses: actions-ecosystem/action-regex-match@v2
@@ -29,8 +29,8 @@ jobs:
           text: ${{ github.event.repository.name }}
           regex: '^(.*)$'
           flags: gm
-      - if: ${{ steps.regex-match.outputs.match != '' }}
-        run: echo ${{ steps.regex-match.inputs.regex }}
+        if: true
+        run: echo ${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name3"
         uses: actions-ecosystem/action-regex-match@v2
@@ -38,8 +38,8 @@ jobs:
           text: ${{ github.event.repository.name }}
           regex: '(.+)'
           flags: gm
-      - if: ${{ steps.regex-match.outputs.match != '' }}
-        run: echo ${{ steps.regex-match.inputs.regex }}
+        if: true
+        run: echo ${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
         
       - name: "Check FindLaw Repository Name4"
         uses: actions-ecosystem/action-regex-match@v2
@@ -47,5 +47,5 @@ jobs:
           text: ${{ github.event.repository.name }}
           regex: '(FindLaw_.*)'
           flags: gm
-      - if: ${{ steps.regex-match.outputs.match != '' }}
-        run: echo ${{ steps.regex-match.inputs.regex }}
+        if: true
+        run: echo ${{ steps.regex-match.inputs.regex }}--${{ steps.regex-match.outputs.group1 }}--${{ steps.regex-match.outputs.match }}
